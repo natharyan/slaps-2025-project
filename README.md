@@ -31,7 +31,9 @@ This semester-long project is designed as a continuous, research-oriented exerci
 ### Week 1: Setup and Environment Installation
 **Deliverables:**
 - Install Dafny, Z3, and related tools
-- Create a GitHub repository and give access to the course instructor and teaching assistant
+- Create a GitHub repository and give access to the course instructor and teaching assistant:
+  - **Instructor**: [aalok-thakkar](https://github.com/aalok-thakkar)  
+  - **Teaching Assistant**: [smayanagarwal](https://github.com/smayanagarwal)
 - Test Dafny on 3 example programs to familiarize themselves with the workflow
 - Submit: Repository link and test results
 
