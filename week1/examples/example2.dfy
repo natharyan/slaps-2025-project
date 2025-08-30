@@ -1,7 +1,7 @@
 // Example 2: Factorial calculation with loop invariant
 // This demonstrates invariant synthesis for mathematical computations
 
-method Factorial(n: int) returns (fact: int)
+method factorial(n: int) returns (fact: int)
     requires n >= 0
     ensures fact == Factorial(n)
 {

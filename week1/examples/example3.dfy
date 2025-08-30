@@ -1,7 +1,7 @@
 // Example 3: Fibonacci calculation with loop invariant
 // This demonstrates invariant synthesis for iterative algorithms
 
-method Fibonacci(n: int) returns (fib: int)
+method fibonacci(n: int) returns (fib: int)
     requires n >= 0
     ensures fib == Fibonacci(n)
 {
