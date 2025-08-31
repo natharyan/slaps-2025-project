@@ -3,7 +3,7 @@
 
 method fibonacci(n: int) returns (fib: int)
     requires n >= 0
-    ensures fib == Fibonacci(n)
+    ensures fib == Fibonacci(n)pip 
 {
     if n <= 1 {
         fib := n;
