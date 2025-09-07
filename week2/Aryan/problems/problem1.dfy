@@ -9,10 +9,14 @@ method loop(n: int) returns (j: int)
     j := 0;
     
     while i < n
-        // TODO: Write loop invariant(s)
+        invariant j == i * 2
+        invariant 0 <= i <= n
         decreases n - i
     {
         i := i + 1;
         j := j + 2;
     }
 }
+
+// Output:
+// Dafny program verifier finished with 1 verified, 0 errors
