@@ -1,6 +1,9 @@
 // Problem 4: Fast Power (Exponentiation by Squaring)
 // Write loop invariant(s) for this method
 
+// lemma AAAA(a:int,b:int)
+//     requires 
+
 method FastPower(base: int, exp: int) returns (result: int)
     requires exp >= 0 
     ensures result == Power(base, exp) 
@@ -8,12 +11,16 @@ method FastPower(base: int, exp: int) returns (result: int)
     var x := base;
     var n := exp;
     result := 1;
-    
+    if base==0
+    {
+        result :=0;
+    }
+    else {
     while n > 0
         // TODO: Write loop invariant(s)
         invariant 0 <= n <= exp
-        invariant (base!=0 ==> x % base == 0) && (base == 0 ==> x==0)
-        invariant (base!=0 && result != 1 ==> result % base == 0) && (base == 0 ==> result == 0 || result == 1)
+        invariant (x % base == 0)
+        invariant (result != 1 ==> result % base == 0)
         invariant result * Power (x,n) == Power (base, exp)
         decreases n
     {
@@ -22,7 +29,7 @@ method FastPower(base: int, exp: int) returns (result: int)
         }
         x := x * x;
         n := n / 2; //this does truncated division, basically ignore decimals!!!
-    }
+    }}
 }
 
 // Helper function

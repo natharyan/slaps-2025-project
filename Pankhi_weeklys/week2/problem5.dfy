@@ -7,15 +7,16 @@ method ReverseNumber(n: int) returns (rev: int)
 {
     rev := 0;
     var num := n;
-    
+    var itt :=0;
     while num > 0
         // TODO: Write loop invariant(s)
-        
+        invariant rev == ReverseDigits(n % Power(10,itt))
         decreases num
     {
         var digit := num % 10;
         rev := rev * 10 + digit;
         num := num / 10;
+        itt := itt + 1;
     }
 }
 
