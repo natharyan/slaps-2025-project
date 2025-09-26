@@ -3,7 +3,7 @@
 
 method fibonacci(n: int) returns (fib: int)
     requires n >= 0
-    ensures fib == Fibonacci(n)
+    ensures fib == Fibonacci_den(n)
 {
     if n <= 1 {
         fib := n;
@@ -14,8 +14,8 @@ method fibonacci(n: int) returns (fib: int)
         
         while i <= n
             invariant 2 <= i <= n + 1
-            invariant a == Fibonacci(i - 2)
-            invariant b == Fibonacci(i - 1)
+            invariant a == Fibonacci_den(i - 2)
+            invariant b == Fibonacci_den(i - 1)
             decreases n - i
         {
             var temp := a + b;
@@ -29,9 +29,9 @@ method fibonacci(n: int) returns (fib: int)
 }
 
 // Helper function for Fibonacci
-function Fibonacci(n: int): int
+function Fibonacci_den(n: int): int
     requires n >= 0
 {
-    if n <= 1 then n else Fibonacci(n - 1) + Fibonacci(n - 2)
+    if n <= 1 then n else Fibonacci_den(n - 1) + Fibonacci_den(n - 2)
 }
 

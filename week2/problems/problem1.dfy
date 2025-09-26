@@ -9,7 +9,8 @@ method loop(n: int) returns (j: int)
     j := 0;
     
     while i < n
-        // TODO: Write loop invariant(s)
+        invariant 0 <= i <= n
+        invariant j == 2 * i
         decreases n - i
     {
         i := i + 1;
