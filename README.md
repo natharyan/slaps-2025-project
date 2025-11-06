@@ -69,7 +69,6 @@ This semester-long project is designed as a continuous, research-oriented exerci
 ### Week 6: Linear Invariant Synthesis
 **Deliverables:**
 - Restrict invariants to linear forms: ax + by <= c
-- Test against 5 problems provided by the TA
 - Submit: Linear invariant synthesis tool
 
 ### Week 7: Automated Correctness Checking

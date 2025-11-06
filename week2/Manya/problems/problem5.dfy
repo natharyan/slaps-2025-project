@@ -5,12 +5,13 @@ method ReverseNumber(n: int) returns (rev: int)
     requires n >= 0
     ensures rev == ReverseDigits(n)
 {
+    var orig := n;
     rev := 0;
     var num := n;
     
     while num > 0
         invariant num >= 0
-        invariant rev * Power(10, NumDigits(num)) + ReverseDigits(num) == ReverseDigits(n)
+        invariant ReverseDigits(orig) == rev * Power(10, NumDigits(num)) + ReverseDigits(num)
         decreases num
     {
         // if num >= 10{
@@ -22,18 +23,20 @@ method ReverseNumber(n: int) returns (rev: int)
     }
 }
 
-// Helper function to define what "reversed" means
 function ReverseDigits(n: int): int
-    requires n >= 0
+  requires n >= 0
 {
-    if n < 10 then n else (n % 10) * Power(10, NumDigits(n) - 1) + ReverseDigits(n / 10)
+  if n == 0 then 0
+  else (n % 10) * Power(10, NumDigits(n / 10)) + ReverseDigits(n / 10)
 }
 
-// Helper function to count digits
-function NumDigits(n: int): int
-    requires n >= 0
+function NumDigits(n: int): (num: int)
+  requires n >= 0
+  ensures num >= 0
 {
-    if n < 10 then 1 else 1 + NumDigits(n / 10)
+  if n == 0 then 0
+  else if n < 10 then 1
+  else 1 + NumDigits(n / 10)
 }
 
 // Helper function for power (needed for ReverseDigits)

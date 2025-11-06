@@ -3,14 +3,14 @@
 
 method factorial(n: int) returns (fact: int)
     requires n >= 0
-    ensures fact == Factorial(n)
+    ensures fact == Factorial_den(n)
 {
     var i := 0;
     fact := 1;
     
     while i < n
         invariant 0 <= i <= n
-        invariant fact == Factorial(i)
+        invariant fact == Factorial_den(i)
         decreases n - i
     {
         i := i + 1;
@@ -19,9 +19,8 @@ method factorial(n: int) returns (fact: int)
 }
 
 // Helper function for factorial
-function Factorial(n: int): int
+function Factorial_den(n: int): int
     requires n >= 0
 {
-    if n == 0 then 1 else n * Factorial(n - 1)
+    if n == 0 then 1 else n * Factorial_den(n - 1)
 }
-
