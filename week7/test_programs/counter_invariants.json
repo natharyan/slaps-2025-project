@@ -1,0 +1,6 @@
+{
+    "invariants": [
+        "0 <= i <= n",
+        "count == i"
+    ]
+}
